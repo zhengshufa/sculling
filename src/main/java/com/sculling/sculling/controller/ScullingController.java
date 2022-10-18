@@ -1,15 +1,20 @@
 package com.sculling.sculling.controller;
 
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.sculling.sculling.domain.Message;
 import com.sculling.sculling.service.ScullingService;
 import com.sculling.sculling.util.RSAUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.alibaba.fastjson.JSON;
+
+import java.util.Map;
+
 
 @RestController
+@Slf4j
 public class ScullingController {
 
 
@@ -18,8 +23,10 @@ public class ScullingController {
     private ScullingService scullingService;
 
     @GetMapping("list")
-    public String list(String url,String bookId) throws Exception{
-        Message msg = scullingService.list(url,bookId);
+    public String list(String req) throws Exception{
+        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
+        log.info("data: "+data);
+        Message msg = scullingService.list(data);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
