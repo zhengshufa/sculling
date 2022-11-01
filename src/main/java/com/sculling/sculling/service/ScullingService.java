@@ -45,11 +45,50 @@ public class ScullingService {
 
     }
 
+
+    public Message list2(String data)  {
+        try{
+//            if(!data.isEmpty()){
+                baseUrl = "http://www.m.wakuai.com/booklist";
+                Document d = Jsoup.connect(baseUrl).get();
+                Elements es = d.getElementById("chapterlist").getElementsByTag("a");
+                urlList.clear();
+                for(Element e : es){
+                    urlList.add(e.attr("href"));
+                }
+                log.info("size:{}",urlList.size());
+//            }
+            return new Message(0,"success",null);
+        }catch (IOException e){
+            e.printStackTrace();
+            return new Message(1,"failed",e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
     public Message sculling(int index){
         try{
             log.info(baseUrl);
 
             Document d = Jsoup.connect(baseUrl + urlList.get(index).split("/")[2]).get();
+            log.info("title:{},index:{}",d.title(),index);
+            Element e = d.getElementById("content");
+            String text = e.text();
+            return new Message(0,"success",text);
+        }catch (IOException e){
+            e.printStackTrace();
+            return new Message(1,"failed",e.getMessage());
+        }
+
+    }
+
+    public Message sculling2(int index){
+        try{
+            log.info(baseUrl);
+            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();

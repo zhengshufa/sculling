@@ -21,15 +21,15 @@ public class ScullingController {
 
     @GetMapping("list")
     public String list(String req) throws Exception{
-        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
-        log.info("data: "+data);
-        Message msg = scullingService.list(data);
+//        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
+//        log.info("data: "+data);
+        Message msg = scullingService.list2(null);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
     @GetMapping("sculling")
     public String sculling(int size) throws Exception{
-        Message msg = scullingService.sculling(size);
+        Message msg = scullingService.sculling2(size);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 }
