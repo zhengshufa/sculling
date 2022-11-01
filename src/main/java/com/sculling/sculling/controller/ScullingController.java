@@ -23,13 +23,13 @@ public class ScullingController {
     public String list(String req) throws Exception{
         String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
         log.info("data: "+data);
-        Message msg = scullingService.list(data);
+        Message msg = scullingService.list3(data);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
     @GetMapping("sculling")
     public String sculling(int size) throws Exception{
-        Message msg = scullingService.sculling(size);
+        Message msg = scullingService.sculling3(size);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 }
