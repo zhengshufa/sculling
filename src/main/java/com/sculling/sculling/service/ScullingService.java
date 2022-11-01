@@ -88,7 +88,7 @@ public class ScullingService {
     public Message sculling2(int index){
         try{
             log.info(baseUrl);
-            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
+            Document d = Jsoup.connect(baseUrl + urlList.get(index).split("/")[2]).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();
