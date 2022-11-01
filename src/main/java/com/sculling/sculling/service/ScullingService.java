@@ -68,6 +68,28 @@ public class ScullingService {
 
     }
 
+    public Message list3(String data)  {
+        try{
+            if(!data.isEmpty()){
+                baseUrl = "https://www.paozww.com/";
+                Document d = Jsoup.connect(baseUrl + URLDecoder.decode(data)).get();
+                Elements es = d.getElementById("list").getElementsByTag("a");
+                urlList.clear();
+                for(Element e : es){
+                    urlList.add(e.attr("href"));
+                }
+                log.info("size:{}",urlList.size());
+            }
+            return new Message(0,"success",null);
+        }catch (IOException e){
+            e.printStackTrace();
+            return new Message(1,"failed",e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     public Message sculling(int index){
         try{
@@ -86,6 +108,21 @@ public class ScullingService {
     }
 
     public Message sculling2(int index){
+        try{
+            log.info(baseUrl);
+            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
+            log.info("title:{},index:{}",d.title(),index);
+            Element e = d.getElementById("content");
+            String text = e.text();
+            return new Message(0,"success",text);
+        }catch (IOException e){
+            e.printStackTrace();
+            return new Message(1,"failed",e.getMessage());
+        }
+
+    }
+
+    public Message sculling3(int index){
         try{
             log.info(baseUrl);
             Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
