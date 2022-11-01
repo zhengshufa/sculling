@@ -48,8 +48,8 @@ public class ScullingService {
 
     public Message list2(String data)  {
         try{
-//            if(!data.isEmpty()){
-                baseUrl = "http://www.m.wakuai.com/booklist";
+            if(!data.isEmpty()){
+                baseUrl = "http://www.m.wakuai.com/booklist" + data;
                 Document d = Jsoup.connect(baseUrl).get();
                 Elements es = d.getElementById("chapterlist").getElementsByTag("a");
                 urlList.clear();
@@ -57,7 +57,7 @@ public class ScullingService {
                     urlList.add(e.attr("href"));
                 }
                 log.info("size:{}",urlList.size());
-//            }
+            }
             return new Message(0,"success",null);
         }catch (IOException e){
             e.printStackTrace();

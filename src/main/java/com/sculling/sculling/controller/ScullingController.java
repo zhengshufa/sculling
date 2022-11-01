@@ -21,9 +21,9 @@ public class ScullingController {
 
     @GetMapping("list")
     public String list(String req) throws Exception{
-//        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
-//        log.info("data: "+data);
-        Message msg = scullingService.list2(null);
+        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
+        log.info("data: "+data);
+        Message msg = scullingService.list2(data);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
