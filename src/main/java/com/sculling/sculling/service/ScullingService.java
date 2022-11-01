@@ -99,7 +99,7 @@ public class ScullingService {
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();
-            return new Message(0,"success",text);
+            return new Message(0,"success:" + d.title(),text);
         }catch (IOException e){
             e.printStackTrace();
             return new Message(1,"failed",e.getMessage());
@@ -114,7 +114,7 @@ public class ScullingService {
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();
-            return new Message(0,"success",text);
+            return new Message(0,"success:" + d.title(),text);
         }catch (IOException e){
             e.printStackTrace();
             return new Message(1,"failed",e.getMessage());
@@ -129,7 +129,7 @@ public class ScullingService {
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();
-            return new Message(0,"success",text);
+            return new Message(0,"success:" + d.title(),text);
         }catch (IOException e){
             e.printStackTrace();
             return new Message(1,"failed",e.getMessage());
