@@ -49,7 +49,7 @@ public class ScullingService {
     public Message list2(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "http://m.wakuai.com/booklist" + data;
+                baseUrl = "http://m.wakuai.com/booklist" + URLDecoder.decode(data);
                 Document d = Jsoup.connect(baseUrl).get();
                 Elements es = d.getElementById("chapterlist").getElementsByTag("a");
                 urlList.clear();
