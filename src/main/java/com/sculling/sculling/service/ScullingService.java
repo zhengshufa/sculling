@@ -49,8 +49,8 @@ public class ScullingService {
     public Message list2(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "http://m.wakuai.com/booklist" + URLDecoder.decode(data);
-                Document d = Jsoup.connect(baseUrl).get();
+                baseUrl = "http://m.wakuai.com/booklist";
+                Document d = Jsoup.connect(baseUrl + URLDecoder.decode(data)).get();
                 Elements es = d.getElementById("chapterlist").getElementsByTag("a");
                 urlList.clear();
                 for(Element e : es){
@@ -88,7 +88,7 @@ public class ScullingService {
     public Message sculling2(int index){
         try{
             log.info(baseUrl);
-            Document d = Jsoup.connect(baseUrl + urlList.get(index).split("/")[2]).get();
+            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
             String text = e.text();
