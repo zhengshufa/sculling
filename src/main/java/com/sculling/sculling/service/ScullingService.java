@@ -26,7 +26,7 @@ public class ScullingService {
     public Message list(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = URLDecoder.decode(data);
+                baseUrl = "https://www.biqusa.org";
                 Document d = Jsoup.connect(baseUrl).get();
                 Elements es = d.getElementById("list").getElementsByTag("a");
                 urlList.clear();
