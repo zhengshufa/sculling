@@ -1,6 +1,6 @@
 #??????
 server:
-  port: 11000
+  port: 11004
 
 spring:
   application:
@@ -9,7 +9,7 @@ spring:
     nacos:
       username: nacos
       password: nacos
-      server-addr: 127.0.0.1:19522  #
+      server-addr: 101.34.13.141:8848  #
       discovery:
         autoRegister: true
         namespace: 26d106c5-8c76-47a0-8c77-b58316892a91
@@ -21,6 +21,6 @@ spring:
         prefix: ${spring.application.name}
         file-extension: yaml  #
 
-logging:
-  level:
-    web: debug
+
+
+

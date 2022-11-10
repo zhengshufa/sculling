@@ -27,7 +27,7 @@ public class ScullingService {
         try{
             if(!data.isEmpty()){
                 baseUrl = "https://www.biqusa.org";
-                Document d = Jsoup.connect(baseUrl).get();
+                Document d = Jsoup.connect(baseUrl+ URLDecoder.decode(data)).get();
                 Elements es = d.getElementById("list").getElementsByTag("a");
                 urlList.clear();
                 for(Element e : es){
