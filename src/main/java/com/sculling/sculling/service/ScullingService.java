@@ -49,8 +49,8 @@ public class ScullingService {
     public Message list2(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "http://m.xitongliu.cn";
-                Document d = Jsoup.connect(baseUrl + URLDecoder.decode(data)).get();
+                baseUrl = "http://m.xitongliu.cn"+ URLDecoder.decode(data);
+                Document d = Jsoup.connect(baseUrl).get();
                 Elements es = d.getElementById("chapterlist").getElementsByTag("a");
                 urlList.clear();
                 for(Element e : es){
