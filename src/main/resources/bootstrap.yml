@@ -2,24 +2,6 @@
 server:
   port: 11004
 
-spring:
-  application:
-    name: sculling1
-  cloud:
-    nacos:
-      username: nacos
-      password: nacos
-      server-addr: 101.34.13.141:8848  #
-      discovery:
-        autoRegister: true
-        namespace: 26d106c5-8c76-47a0-8c77-b58316892a91
-      config:
-        namespace: 26d106c5-8c76-47a0-8c77-b58316892a91   #
-        timeout: 3000
-        refresh-enabled: true  #
-        group: dev
-        prefix: ${spring.application.name}
-        file-extension: yaml  #
 
 
 
