@@ -1,10 +1,5 @@
-package com.device.control.lang.utils;
+package com.sculling.sculling.tool;
 
-import cn.hutool.core.util.HexUtil;
-import com.sun.corba.se.impl.orbutil.HexOutputStream;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * CRC 16 校验码
