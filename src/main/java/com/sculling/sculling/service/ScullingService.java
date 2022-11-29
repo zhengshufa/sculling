@@ -94,7 +94,7 @@ public class ScullingService {
     public Message list4(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "https://www.biququ.com";
+                baseUrl = "https://www.nchdzx.com";
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 Document d = c.get();
                 Elements es = d.getElementsByTag("a");
