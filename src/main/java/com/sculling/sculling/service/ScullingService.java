@@ -95,11 +95,7 @@ public class ScullingService {
         try{
             if(!data.isEmpty()){
                 baseUrl = "https://www.biququ.info";
-                Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
-                c.header("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
-                c.header("Accept-Encoding","gzip, deflate, sdch");
-                c.header("Accept-Language","zh-CN,zh;q=0.8");
-                c.header("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+                Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data)).userAgent("Mozilla");
                 Document d = c.get();
                 Elements es = d.getElementById("list").getElementsByTag("a");
                 urlList.clear();
@@ -168,11 +164,7 @@ public class ScullingService {
     public Message sculling4(int index){
         try{
             log.info(baseUrl);
-            Connection c = Jsoup.connect(baseUrl + urlList.get(index));
-            c.header("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
-            c.header("Accept-Encoding","gzip, deflate, sdch");
-            c.header("Accept-Language","zh-CN,zh;q=0.8");
-            c.header("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+            Connection c = Jsoup.connect(baseUrl + urlList.get(index)).userAgent("Mozilla");
             Document d = c.get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
