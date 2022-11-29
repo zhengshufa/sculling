@@ -94,7 +94,7 @@ public class ScullingService {
     public Message list4(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "http://www.biququ.info";
+                baseUrl = "https://www.biququ.info";
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 c.header("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8");
                 c.header("Accept-Encoding","gzip, deflate, sdch");
