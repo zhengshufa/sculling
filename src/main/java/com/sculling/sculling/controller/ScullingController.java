@@ -66,6 +66,20 @@ public class ScullingController {
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
+    @GetMapping("list4")
+    public String list4(String req) throws Exception{
+        String data = RSAUtils.decryptByPrivateKey(req.replaceAll(" ","+"));
+        log.info("data: "+data);
+        Message msg = scullingService.list4(data);
+        return RSAUtils.encryptByPublicKey(msg.toString());
+    }
+
+    @GetMapping("sculling4")
+    public String sculling4(int size) throws Exception{
+        Message msg = scullingService.sculling4(size);
+        return RSAUtils.encryptByPublicKey(msg.toString());
+    }
+
 
 
 
