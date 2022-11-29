@@ -97,7 +97,7 @@ public class ScullingService {
                 baseUrl = "https://www.nchdzx.com";
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 Document d = c.get();
-                Elements es = d.getElementsByTag("a");
+                Elements es = d.getElementsByTag("dd").tagName("a");
                 urlList.clear();
                 for(Element e : es){
                     urlList.add(e.attr("href"));
