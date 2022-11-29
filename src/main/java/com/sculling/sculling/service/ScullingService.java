@@ -164,8 +164,7 @@ public class ScullingService {
     public Message sculling4(int index){
         try{
             log.info(baseUrl + urlList.get(index));
-            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
-            log.info(d.outerHtml());
+            Document d = Jsoup.connect(baseUrl + urlList.get(index)).userAgent("Mozilla").get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("BookCon");
             log.info(e.html());
