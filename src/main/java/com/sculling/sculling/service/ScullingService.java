@@ -165,8 +165,10 @@ public class ScullingService {
         try{
             log.info(baseUrl + urlList.get(index));
             Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
+            log.info(d.outerHtml());
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("BookCon");
+            log.info(e.html());
             String text = e.text();
             return new Message(0,"success:" + d.title(),text);
         }catch (IOException e){
