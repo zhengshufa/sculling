@@ -117,7 +117,7 @@ public class ScullingService {
 
     public Message sculling(int index){
         try{
-            log.info(baseUrl);
+            log.info(baseUrl + urlList.get(index));
 
             Document d = Jsoup.connect(baseUrl + urlList.get(index).split("/")[2]).get();
             log.info("title:{},index:{}",d.title(),index);
@@ -133,7 +133,7 @@ public class ScullingService {
 
     public Message sculling2(int index){
         try{
-            log.info(baseUrl);
+            log.info(baseUrl + urlList.get(index));
             Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
@@ -148,7 +148,7 @@ public class ScullingService {
 
     public Message sculling3(int index){
         try{
-            log.info(baseUrl);
+            log.info(baseUrl + urlList.get(index));
             Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("content");
@@ -163,7 +163,7 @@ public class ScullingService {
 
     public Message sculling4(int index){
         try{
-            log.info(baseUrl);
+            log.info(baseUrl + urlList.get(index));
             Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
             Element e = d.getElementById("BookCon");
