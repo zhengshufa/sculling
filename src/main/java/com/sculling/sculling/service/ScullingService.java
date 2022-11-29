@@ -94,10 +94,10 @@ public class ScullingService {
     public Message list4(String data)  {
         try{
             if(!data.isEmpty()){
-                baseUrl = "https://www.biququ.info";
+                baseUrl = "https://www.121du.cc";
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data)).userAgent("Mozilla");
                 Document d = c.get();
-                Elements es = d.getElementById("list").getElementsByTag("a");
+                Elements es = d.getElementById("chapterlist").getElementsByTag("a");
                 urlList.clear();
                 for(Element e : es){
                     urlList.add(e.attr("href"));
@@ -164,10 +164,9 @@ public class ScullingService {
     public Message sculling4(int index){
         try{
             log.info(baseUrl);
-            Connection c = Jsoup.connect(baseUrl + urlList.get(index)).userAgent("Mozilla");
-            Document d = c.get();
+            Document d = Jsoup.connect(baseUrl + urlList.get(index)).get();
             log.info("title:{},index:{}",d.title(),index);
-            Element e = d.getElementById("content");
+            Element e = d.getElementById("BookCon");
             String text = e.text();
             return new Message(0,"success:" + d.title(),text);
         }catch (IOException e){
