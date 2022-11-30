@@ -98,13 +98,12 @@ public class ScullingService {
                 log.info(baseUrl + URLDecoder.decode(data));
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 Document d = c.get();
+
                 Elements es = d.getElementsByTag("dd").tagName("a");
-                log.info("----"+es.outerHtml());
-                log.info("==="+es.tagName("a"));
-                log.info("111111111"+es.tagName("a").tagName("a"));
                 urlList.clear();
                 for(Element e : es){
-                    urlList.add(e.attr("href"));
+                    urlList.add(e.tagName("a").attr("href"));
+                    log.info(e.tagName("a").attr("href"));
                 }
                 log.info("size:{}",urlList.size());
             }
