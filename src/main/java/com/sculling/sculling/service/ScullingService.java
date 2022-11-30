@@ -98,8 +98,9 @@ public class ScullingService {
                 log.info(baseUrl + URLDecoder.decode(data));
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 Document d = c.get();
-                log.info(d.outerHtml());
                 Elements es = d.getElementsByTag("dd").tagName("a");
+                log.info(d.getElementsByTag("dd").outerHtml());
+                log.info(es.outerHtml());
                 urlList.clear();
                 for(Element e : es){
                     urlList.add(e.attr("href"));
