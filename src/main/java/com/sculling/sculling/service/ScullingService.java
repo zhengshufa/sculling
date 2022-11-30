@@ -100,11 +100,9 @@ public class ScullingService {
                 Document d = c.get();
 
                 Elements es = d.getElementsByTag("dd").tagName("a");
-                log.info(es.get(20).outerHtml());
-                log.info(es.get(20).childNode(0).outerHtml());
                 urlList.clear();
                 for(Element e : es){
-                    urlList.add(e.tagName("a").attr("href"));
+                    urlList.add(e.childNode(0).attr("href"));
                 }
                 log.info("size:{}",urlList.size());
             }
