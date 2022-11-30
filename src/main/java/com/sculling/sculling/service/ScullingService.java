@@ -98,7 +98,7 @@ public class ScullingService {
                 log.info(baseUrl + URLDecoder.decode(data));
                 Connection c = Jsoup.connect(baseUrl + URLDecoder.decode(data));
                 Document d = c.get();
-                Elements es = d.getElementsByTag("dd").tagName("a");
+                Elements es = d.getElementsByTag("dd").tagName("a").tagName("a");
                 log.info(d.getElementsByTag("dd").outerHtml());
                 log.info(es.outerHtml());
                 urlList.clear();
