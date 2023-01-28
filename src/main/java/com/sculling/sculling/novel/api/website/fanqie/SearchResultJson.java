@@ -1,9 +1,11 @@
 package com.sculling.sculling.novel.api.website.fanqie;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class SearchResultJson {
 
     public int code;
@@ -14,6 +16,7 @@ public class SearchResultJson {
     public String logId;
     public String message;
 
+    @lombok.Data
     public static class Data {
         @SerializedName("total_count")
         public int totalCount;
@@ -23,6 +26,7 @@ public class SearchResultJson {
         public List<AuthorData> authorDataList;
     }
 
+    @lombok.Data
     public static class BookData {
         @SerializedName("book_name")
         public String bookName;
