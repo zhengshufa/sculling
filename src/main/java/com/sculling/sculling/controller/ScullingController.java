@@ -103,7 +103,7 @@ public class ScullingController {
     public String search(String name) throws Exception{
         String data = RSAUtils.decryptByPrivateKey(name.replaceAll(" ","+"));
         log.info("data: "+data);
-        Message msg = scullingService.search(name);
+        Message msg = scullingService.search(data);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
