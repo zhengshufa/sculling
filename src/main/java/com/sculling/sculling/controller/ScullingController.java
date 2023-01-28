@@ -101,9 +101,7 @@ public class ScullingController {
 
     @GetMapping("search")
     public String search(String name) throws Exception{
-        String data = RSAUtils.decryptByPrivateKey(name.replaceAll(" ","+"));
-        log.info("data: "+data);
-        Message msg = scullingService.search(data);
+        Message msg = scullingService.search(name);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
