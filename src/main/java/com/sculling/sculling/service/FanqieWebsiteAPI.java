@@ -46,7 +46,7 @@ public class FanqieWebsiteAPI implements API {
     }
 
     public SearchResultJson search(String keyword) throws IOException {
-        return search(keyword, 0);
+        return search(keyword, 0,50);
     }
 
     protected Map<String, String> getHeaders() {
