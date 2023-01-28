@@ -187,7 +187,7 @@ public class ScullingService {
             FanqieWebsiteAPI api = new FanqieWebsiteAPI();
             SearchResultJson searchResultJson = api.search(name);
             List<String> result = searchResultJson.data.bookDataList.stream().map(o->{
-                String res = "名称：" + o.bookName + "简介：" + o.intro + "bookId" + o.bookId + "\n";
+                String res = "【名称：" + o.bookName + "简介：" + o.intro + "bookId:" + o.bookId + "】\n";
                 return res;
             }).collect(Collectors.toList());
             return new Message(0, "success", result.toString());
