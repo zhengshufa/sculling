@@ -205,14 +205,13 @@ public class ScullingService {
 
     public Message list5(String bookId) {
         List<ChapterBean> chapterBeanList = new ArrayList<>();
-
         try {
             FanqieWebsiteAPI api = new FanqieWebsiteAPI();
             NovelBean novel = api.getNovel(bookId);
             for (NovelBean.Volume volume : novel.volumeList) {
                 for (ChapterBean chapterBean : volume.chapterBeanList) {
                     log.info(chapterBean.chapterName+chapterBean.url);
-                    chapterBeanList.add(chapterBean);
+                    chapterBeanList.add(api.getChapContent(chapterBean));
                 }
             }
             menuMap.put(bookId,chapterBeanList);
