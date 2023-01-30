@@ -211,7 +211,7 @@ public class ScullingService {
             NovelBean novel = api.getNovel(bookId);
             for (NovelBean.Volume volume : novel.volumeList) {
                 for (ChapterBean chapterBean : volume.chapterBeanList) {
-                    log.info(chapterBean.chapterName,chapterBean.url);
+                    log.info(chapterBean.chapterName+chapterBean.url);
                     chapterBeanList.add(chapterBean);
                 }
             }
@@ -224,7 +224,7 @@ public class ScullingService {
     }
 
     public Message sculling5(int index,String bookId) {
-        log.info(index+"",bookId);
+        log.info(index+""+bookId);
         try {
             ChapterBean chapContent = menuMap.get(bookId).get(index);
             return new Message(0, "success", chapContent.chapterName + chapContent.content);
