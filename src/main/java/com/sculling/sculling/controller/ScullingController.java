@@ -93,8 +93,8 @@ public class ScullingController {
     }
 
     @GetMapping("sculling5")
-    public String sculling5(int size) throws Exception{
-        Message msg = scullingService.sculling5(size);
+    public String sculling5(int size,String bookId) throws Exception{
+        Message msg = scullingService.sculling5(size,bookId);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 

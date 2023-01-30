@@ -16,7 +16,9 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -197,10 +199,13 @@ public class ScullingService {
         }
     }
 
-    List<ChapterBean> chapterBeanList = new ArrayList<>();
+
+
+    Map<String,List<ChapterBean>> menuMap = new HashMap<>();
 
     public Message list5(String bookId) {
-        chapterBeanList = new ArrayList<>();
+        List<ChapterBean> chapterBeanList = new ArrayList<>();
+
         try {
             FanqieWebsiteAPI api = new FanqieWebsiteAPI();
             NovelBean novel = api.getNovel(bookId);
@@ -209,6 +214,7 @@ public class ScullingService {
                     chapterBeanList.add(chapterBean);
                 }
             }
+            menuMap.put(bookId,chapterBeanList);
             return new Message(0, "success", chapterBeanList.size() + "");
         } catch (Exception e) {
             e.printStackTrace();
@@ -216,9 +222,9 @@ public class ScullingService {
         }
     }
 
-    public Message sculling5(int index) {
+    public Message sculling5(int index,String bookId) {
         try {
-            ChapterBean chapContent = chapterBeanList.get(index);
+            ChapterBean chapContent = menuMap.get(bookId).get(index);
             return new Message(0, "success", chapContent.chapterName + chapContent.content);
         } catch (Exception e) {
             e.printStackTrace();
