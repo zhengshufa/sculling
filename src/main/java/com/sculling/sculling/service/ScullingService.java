@@ -224,6 +224,7 @@ public class ScullingService {
     }
 
     public Message sculling5(int index,String bookId) {
+        log.info(index+"",bookId);
         try {
             ChapterBean chapContent = menuMap.get(bookId).get(index);
             return new Message(0, "success", chapContent.chapterName + chapContent.content);
