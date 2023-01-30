@@ -100,8 +100,8 @@ public class ScullingController {
 
 
     @GetMapping("search")
-    public String search(String name) throws Exception{
-        Message msg = scullingService.search(name);
+    public String search(String name,int page) throws Exception{
+        Message msg = scullingService.search(name,page);
         return RSAUtils.encryptByPublicKey(msg.toString());
     }
 
