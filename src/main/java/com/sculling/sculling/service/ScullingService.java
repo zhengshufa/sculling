@@ -211,6 +211,7 @@ public class ScullingService {
             NovelBean novel = api.getNovel(bookId);
             for (NovelBean.Volume volume : novel.volumeList) {
                 for (ChapterBean chapterBean : volume.chapterBeanList) {
+                    log.info(chapterBean.chapterName,chapterBean.url);
                     chapterBeanList.add(chapterBean);
                 }
             }
