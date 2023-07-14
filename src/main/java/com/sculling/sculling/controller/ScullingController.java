@@ -18,7 +18,6 @@ import java.io.IOException;
 
 @RestController
 @Slf4j
-
 public class ScullingController {
 
 
