@@ -117,8 +117,8 @@
 
         <dependency>
             <groupId>com.intelligt.modbus</groupId>
-            <artifactId>jamod</artifactId>
-            <version>1.2.11</version>
+            <artifactId>jlibmodbus</artifactId>
+            <version>1.2.9.11</version>
         </dependency>
 
 
