@@ -115,6 +115,13 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.intelligt.modbus</groupId>
+            <artifactId>jamod</artifactId>
+            <version>1.2.11</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
