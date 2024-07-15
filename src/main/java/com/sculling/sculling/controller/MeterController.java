@@ -3,11 +3,14 @@ package com.sculling.sculling.controller;
 import cn.hutool.core.date.DateUtil;
 import com.sculling.sculling.domain.MeterData;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -63,6 +66,19 @@ public class MeterController {
     }
 
     public static void main(String[] args) {
-        System.out.println(new BigDecimal(DateUtil.format(new Date(),"MMddHH")).toString());
+        try{
+
+            DataSource dataSource = DataSourceBuilder.create().url("jdbc:").build();
+            Connection connection = dataSource.getConnection();
+        }catch (Exception e){
+            log.info("432");
+        }
+
+
     }
+
+
+
 }
+
+
