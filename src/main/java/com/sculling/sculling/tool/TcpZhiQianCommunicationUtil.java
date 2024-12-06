@@ -1,4 +1,4 @@
-package com.device.control.lang.utils.tcp;
+package com.sculling.sculling.tool;
 
 
 import java.io.*;

@@ -1,7 +1,8 @@
-//package com.sculling.sculling.util;
+//package com.sculling.sculling.tool;
 //
 //
 //
+//import org.springblade.common.enums.MapTypeEnum;
 //
 //
 //
@@ -13,7 +14,7 @@
 //
 // */
 //
-//public class GPSConverterUtils.java {
+//public class GPSConverterUtils {
 //
 //
 //
