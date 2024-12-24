@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -39,8 +38,7 @@ public class MeterController {
         res.put("ErrNo",0);
         res.put("ErrMsg","成功");
         List<Map<String,Object>> datas = new ArrayList<>();
-        for(int i=0;i<arr.length;i++){
-            String sn  = arr[i];
+        for(String sn : arr ){
             int x = (int)(Math.random()*100+1);
             Map<String,Object> data = new HashMap<>();
             MeterData meterData = new MeterData();
