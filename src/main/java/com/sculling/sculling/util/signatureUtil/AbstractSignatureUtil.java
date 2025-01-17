@@ -1,7 +1,6 @@
 package com.sculling.sculling.util.signatureUtil;
 
 import com.alibaba.fastjson.JSON;
-import com.ly.utils.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
@@ -32,8 +31,9 @@ public abstract class AbstractSignatureUtil<T> {
         });
         String sign = RsaUtil.vstEncode(sb.toString());
         log.info("req.sign:{}",sign);
-        String respStr = HttpUtils.sendPost(requestHost+getInterPath(),paramMap,sign);
-        return JSON.parseObject(respStr, tClass);
+//        String respStr = HttpUtils.sendPost(requestHost+getInterPath(),paramMap,sign);
+//        return JSON.parseObject(respStr, tClass);
+        return null;
     }
 
 
